@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'welcome.apps.WelcomeConfig',
     'home.apps.HomeConfig',
 ]
 
@@ -135,8 +136,8 @@ STATIC_URL = '/static/'
 
 
 LOGIN_URL = '/auth/login/google-oauth2/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home/'
+LOGOUT_REDIRECT_URL = ''
 
 
 AUTHENTICATION_BACKENDS = (

@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<canvas id="canvas" width="300" height="300"></canvas>
+<script type="text/javascript">
+  window.onload = function(){
+    draw();
+  }
+  function draw(){
+    var canvas = document.getElementById('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    if(canvas.getContext){
+      var ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      var x = 500, y = 500, radius = 50, startAngle = 0, endAngle = 360, anticlockwise = 0;
+      ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+      ctx.stroke()
+    }
+  }
+</script>
+{% endblock %}

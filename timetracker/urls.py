@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('social_django.urls', namespace='social')),
     path('logout/', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
-    path('', include('home.urls')),
+    path('', include('welcome.urls')),
+    path('home/', include('home.urls')),
 ]

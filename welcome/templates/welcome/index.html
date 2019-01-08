@@ -1,12 +1,12 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-<canvas id="canvas" width="300" height="300"></canvas>
+<!-- <canvas id="canvas" width="300" height="300"></canvas>
 <script type="text/javascript">
   window.onload = function(){
-    draw();
+    drawWatch();
   }
-  function draw(){
+  function drawWatch(){
     var canvas = document.getElementById('canvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -15,8 +15,33 @@
       ctx.beginPath();
       var x = 500, y = 500, radius = 50, startAngle = 0, endAngle = 360, anticlockwise = 0;
       ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-      ctx.stroke()
+      ctx.stroke();
+
+      var date = new Date();
+      var h = date.getHours(), m = date.getMinutes(), s = date.getSeconds();
+      ctx.beginPath();
+      ctx.lineWidth = 5;
+      var hx = x + 30 * (Math.cos(30 * (Math.PI / 180)));
+      var hy = y + 30 * (Math.sin(30 * (Math.PI / 180)));
+      ctx.moveTo(x, y);
+      ctx.lineTo(hx, hy);
+      ctx.stroke();
+
+      var s_angle = s, sx = x, sy = y;
+      var watch_interval = setInterval(function(){
+        console.log(s);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgb(0, 0, 0)';
+        ctx.lineWidth = 2;
+        sx = (x + 50 * (Math.cos((s_angle += 1) * (Math.PI / 180))));
+        sy = (y + 50 * (Math.sin((s_angle += 1) * (Math.PI / 180))));
+        ctx.moveTo(x, y);
+        ctx.lineTo(sx, sy);
+        ctx.strokeStyle = 'rgb(255, 255, 255)';
+        ctx.stroke();
+        ctx.closePath();
+      }, 1000);
     }
   }
-</script>
+</script> -->
 {% endblock %}
